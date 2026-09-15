@@ -1,0 +1,59 @@
+{
+  "name": "cookiehub-js",
+  "version": "1.0.0",
+  "description": "JavaScript loader and API wrapper for the CookieHub consent platform. Framework-agnostic; shared by react-cookiehub and nuxt-cookiehub.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cookiehub-com/cookiehub-js.git"
+  },
+  "homepage": "https://github.com/cookiehub-com/cookiehub-js#readme",
+  "bugs": {
+    "url": "https://github.com/cookiehub-com/cookiehub-js/issues"
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "rm -rf dist && rollup -c",
+    "dev": "rollup -c -w",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "cookiehub",
+    "cookie-consent",
+    "cookie-banner",
+    "consent-management",
+    "cmp",
+    "gdpr",
+    "ccpa",
+    "privacy"
+  ],
+  "author": "CookieHub",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "jsdom": "^25.0.1",
+    "rollup": "^4.22.4",
+    "rollup-plugin-dts": "^6.1.0",
+    "tslib": "^2.6.2",
+    "typescript": "^5.3.2",
+    "vitest": "^2.1.8"
+  }
+}
